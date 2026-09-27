@@ -153,16 +153,20 @@ Um deine persönlichen Daten (Namen, Vereinsnamen, Spielpläne, CalDAV-Serveradr
 1. **Öffentliches Repo (`SpielerPlusPlus`):** Enthält den Quellcode und die automatisierten Tests (`tests.yml`).
 2. **Privates Runner-Repo (`SpielerPlusPlusRunner`):** Enthält ausschließlich den Workflow `.github/workflows/sync.yml` und deine GitHub Secrets. Beim Ausführen lädt der Runner automatisch den aktuellen Code aus diesem Repository herunter.
 
-### Secrets im privaten Runner-Repository konfigurieren:
-Unter `Settings > Secrets and variables > Actions > New repository secret`:
-- `SPIELERPLUS_EMAIL`: Deine SpielerPlus E-Mail-Adresse
-- `SPIELERPLUS_PASSWORD`: Dein SpielerPlus Passwort
-- `CALDAV_URL`: URL deines CalDAV-Servers (z. B. `https://cloud.beispiel.de/remote.php/dav`)
-- `CALDAV_USERNAME`: Dein Nextcloud/ownCloud Benutzername
-- `CALDAV_PASSWORD`: Dein Nextcloud/ownCloud App-Token / Passwort
-- `CALDAV_CALENDAR`: Name des Zielkalenders (z. B. `SpielerPlus`)
-- `SPIELERPLUS_TEAMS`: (optional) z. B. `12345:U15, 67890:U17`
-- `SPIELERPLUS_TIMEZONE`: (optional) Standard: `Europe/Berlin`
+Eine fertige Workflow-Vorlage findest du direkt in diesem Repository: [examples/sync.yml](examples/sync.yml).
+
+### Einrichtung des privaten Runners:
+1. Erstelle ein neues **privates Repository** auf GitHub (z. B. `SpielerPlusPlusRunner`).
+2. Lege darin die Datei `.github/workflows/sync.yml` an und füge den Inhalt aus [examples/sync.yml](examples/sync.yml) ein.
+3. Hinterlege unter `Settings > Secrets and variables > Actions > New repository secret`:
+   - `SPIELERPLUS_EMAIL`: Deine SpielerPlus E-Mail-Adresse
+   - `SPIELERPLUS_PASSWORD`: Dein SpielerPlus Passwort
+   - `CALDAV_URL`: URL deines CalDAV-Servers (z. B. `https://cloud.beispiel.de/remote.php/dav`)
+   - `CALDAV_USERNAME`: Dein Nextcloud/ownCloud Benutzername
+   - `CALDAV_PASSWORD`: Dein Nextcloud/ownCloud App-Token / Passwort
+   - `CALDAV_CALENDAR`: Name des Zielkalenders (z. B. `SpielerPlus`)
+   - `SPIELERPLUS_TEAMS`: (optional) z. B. `12345:U15, 67890:U17`
+   - `SPIELERPLUS_TIMEZONE`: (optional) Standard: `Europe/Berlin`
 
 ---
 

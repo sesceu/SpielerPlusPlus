@@ -1,0 +1,64 @@
+name: Sync Calendar to CalDAV
+
+on:
+  schedule:
+    # Run every 2 hours
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+    inputs:
+      test_auth_only:
+        description: 'Only test authentication without modifying data'
+        type: boolean
+        default: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Pull the latest code directly from the public SpielerPlusPlus repository
+      - name: Checkout SpielerPlusPlus code
+        uses: actions/checkout@v4
+        with:
+          repository: 'sesceu/SpielerPlusPlus'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Test authentication against SpielerPlus and CalDAV (if selected under "Run workflow")
+      - name: Test Authentication (if requested)
+        if: ${{ inputs.test_auth_only }}
+        env:
+          SPIELERPLUS_EMAIL: ${{ secrets.SPIELERPLUS_EMAIL }}
+          SPIELERPLUS_PASSWORD: ${{ secrets.SPIELERPLUS_PASSWORD }}
+          SPIELERPLUS_TEAMS: ${{ secrets.SPIELERPLUS_TEAMS }}
+          SPIELERPLUS_TIMEZONE: ${{ secrets.SPIELERPLUS_TIMEZONE }}
+          CALDAV_URL: ${{ secrets.CALDAV_URL }}
+          CALDAV_USERNAME: ${{ secrets.CALDAV_USERNAME }}
+          CALDAV_PASSWORD: ${{ secrets.CALDAV_PASSWORD }}
+          CALDAV_CALENDAR: ${{ secrets.CALDAV_CALENDAR }}
+        run: |
+          python main.py --test-auth
+
+      # Full sync: fetch upcoming events, query personal attendance, upsert to CalDAV
+      - name: Sync SpielerPlus to CalDAV
+        if: ${{ !inputs.test_auth_only }}
+        env:
+          SPIELERPLUS_EMAIL: ${{ secrets.SPIELERPLUS_EMAIL }}
+          SPIELERPLUS_PASSWORD: ${{ secrets.SPIELERPLUS_PASSWORD }}
+          SPIELERPLUS_TEAMS: ${{ secrets.SPIELERPLUS_TEAMS }}
+          SPIELERPLUS_TIMEZONE: ${{ secrets.SPIELERPLUS_TIMEZONE }}
+          CALDAV_URL: ${{ secrets.CALDAV_URL }}
+          CALDAV_USERNAME: ${{ secrets.CALDAV_USERNAME }}
+          CALDAV_PASSWORD: ${{ secrets.CALDAV_PASSWORD }}
+          CALDAV_CALENDAR: ${{ secrets.CALDAV_CALENDAR }}
+        run: |
+          python main.py
