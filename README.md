@@ -108,6 +108,30 @@ CALDAV_PASSWORD="dein-cloud-app-passwort"
 CALDAV_CALENDAR="SpielerPlus"
 ```
 
+### 💡 Wie finde ich meine Team-IDs?
+
+Du hast drei einfache Möglichkeiten, an deine Team-IDs zu kommen:
+
+1. **Automatisch über den Test-Befehl (am einfachsten):**
+   Führe den Verbindungstest aus:
+   ```bash
+   python3 main.py --test-auth
+   ```
+   *(Oder im privaten Runner-Repo den Workflow manuell mit gesetztem Haken bei „Only test authentication“ ausführen).*  
+   SpielerPlusPlus loggt sich ein und listet dir alle Teams deines Accounts mit Namen und IDs auf:
+   ```text
+   [OK] Found 2 team(s):
+        - ID 12345: 1. Herren
+        - ID 67890: 2. Herren
+   ```
+
+2. **Im Web-Browser auf spielerplus.de:**
+   - Klicke auf der Webseite oben auf dein aktuelles Team („Team wechseln“).
+   - Fahre mit der Maus über das gewünschte Team: Im Ziellink (`/site/switch-user?id=12345`) ist die Zahl hinter `id=` deine Team-ID.
+
+3. **Gar nicht nötig (Auto-Erkennung aller Teams):**
+   - Wenn du `SPIELERPLUS_TEAMS` in der `.env` oder in den GitHub Secrets einfach **leer lässt**, erkennt SpielerPlusPlus automatisch alle Teams deines Accounts und synchronisiert sie direkt!
+
 ### 3. Kalender synchronisieren
 
 Zugangsdaten & Verbindung testen (prüft Login bei SpielerPlus und CalDAV, ohne Daten zu verändern):
