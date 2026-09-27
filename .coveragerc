@@ -1,0 +1,13 @@
+[run]
+source =
+    spielerplus
+    main
+    record_fixtures
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+    if __name__ == '__main__':
+    if __name__ == "__main__":
+    def __repr__
