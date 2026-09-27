@@ -8,6 +8,7 @@ import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from spielerplus.config import Config, load_env_file, parse_bool, parse_teams_config
 
@@ -104,6 +105,14 @@ class TestConfig(unittest.TestCase):
         self.assertEqual(cfg.caldav_username, "")
         self.assertEqual(cfg.caldav_password, "")
         self.assertEqual(cfg.caldav_calendar, "SpielerPlus")
+
+    @patch("pathlib.Path.is_file")
+    @patch("spielerplus.config.load_env_file")
+    def test_config_from_env_with_default_dotenv(self, mock_load, mock_is_file):
+        mock_is_file.return_value = True
+        Config.from_env()
+        mock_load.assert_called_with(".env")
+
 
     def test_config_from_env_custom(self):
         os.environ["SPIELERPLUS_EMAIL"] = "test@example.com"
