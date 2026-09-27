@@ -32,8 +32,8 @@ def main(args=None) -> int:
     parser.add_argument(
         "--output-dir",
         type=str,
-        default="tests/fixtures",
-        help="Target folder for fixtures (default: tests/fixtures)",
+        default="tests/fixtures/live",
+        help="Target folder for fixtures (default: tests/fixtures/live)",
     )
     parser.add_argument(
         "--no-sanitize",

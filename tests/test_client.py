@@ -139,23 +139,10 @@ class TestSpielerPlusClient(unittest.TestCase):
 
     def test_get_event_attendance(self):
         self.client.login()
-        # Dynamically read confirmed/declined users from fixture to stay future-proof
+        # Read confirmed/declined users from fixture
         import json
-        fixture_path = Path("tests/fixtures/participation.json")
-        if fixture_path.is_file():
-            with open(fixture_path, encoding="utf-8") as f:
-                data = json.load(f)
-        else:  # pragma: no cover
-            data = {
-                "html": (
-                    '<div class="participation-list"><h4 class="participation-list-header">Zugesagt</h4>'
-                    '<div class="participation-list-user"><div class="participation-list-user-name">Max Mustermann</div></div></div>'
-                    '<div class="participation-list"><h4 class="participation-list-header">Absagen</h4>'
-                    '<div class="participation-list-user"><div class="participation-list-user-name">Erika Musterfrau</div></div></div>'
-                    '<div class="participation-list"><h4 class="participation-list-header">Noch nicht zu/abgesagt</h4>'
-                    '<div class="participation-list-user"><div class="participation-list-user-name">Offener Spieler</div></div></div>'
-                )
-            }
+        with open("tests/fixtures/participation.json", encoding="utf-8") as f:
+            data = json.load(f)
         soup = BeautifulSoup(data.get("html", ""), "html.parser")
 
         zugesagt_user = None

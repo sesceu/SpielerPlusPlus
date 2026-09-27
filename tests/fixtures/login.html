@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Anmelden - SpielerPlus</title></head>
+<body>
+    <form id="login-form" action="/site/login" method="post">
+        <input type="hidden" name="_csrf" value="mock-csrf">
+        <input type="email" id="loginform-email" name="LoginForm[email]" placeholder="E-Mail">
+        <input type="password" id="loginform-password" name="LoginForm[password]" placeholder="Passwort">
+        <input type="checkbox" id="loginform-rememberme" name="LoginForm[rememberMe]" value="1">
+        <button type="submit" name="login-button">Anmelden</button>
+    </form>
+</body>
+</html>

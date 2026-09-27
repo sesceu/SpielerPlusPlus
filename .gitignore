@@ -41,7 +41,7 @@ ENV/
 *.cover
 htmlcov/
 
-# Recorded personal fixtures (keep fixtures directory clean for git)
-tests/fixtures/*.html
-tests/fixtures/*.json
-tests/fixtures/*.ics
+# Recorded personal live fixtures (keep separate from committed anonymized fixtures)
+tests/fixtures/live/
+tests/fixtures/*.live.*
+

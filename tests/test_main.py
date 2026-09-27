@@ -38,6 +38,7 @@ class TestMain(unittest.TestCase):
         os.environ["CALDAV_USERNAME"] = "mockuser"
         os.environ["CALDAV_PASSWORD"] = "mockpass"
         os.environ["CALDAV_CALENDAR"] = "SpielerPlus"
+        os.environ["CI"] = "false"
 
     def tearDown(self):
         os.environ.pop("CI", None)
