@@ -45,7 +45,7 @@ Bei reinen Free-Teams ohne Account-Premium blendet SpielerPlus anstelle des Link
 | 3. Statusabgleich für anstehende Termine (nächste 90 Tage)   |
 |    - Filtert auf zukünftige Events                           |
 |    - Ermittelt persönlichen Status (Zugesagt / Abgesagt)     |
-|    - Setzt Präfix: [U15, 👍] Training                        |
+|    - Setzt Präfix: [U15, Status-Emoji] Training              |
 +------------------------------+-------------------------------+
                                |
                                v
@@ -108,7 +108,7 @@ CALDAV_PASSWORD="dein-cloud-app-passwort"
 CALDAV_CALENDAR="SpielerPlus"
 ```
 
-### 💡 Wie finde ich meine Team-IDs?
+### :bulb: Wie finde ich meine Team-IDs?
 
 Du hast drei einfache Möglichkeiten, an deine Team-IDs zu kommen:
 
@@ -166,7 +166,9 @@ python3 main.py --team 12345
 | Unsicher | :question: | `[U15, ` :question: `] Sommerfest` |
 | Noch offen | :hourglass_flowing_sand: | `[U15, ` :hourglass_flowing_sand: `] Training` |
 | Nicht nominiert | :no_entry_sign: | `[U15, ` :no_entry_sign: `] Meisterschaftsspiel` |
-| Vergangene Termine | — | `[U15] Training` |
+| Ohne Status / Emojis deaktiviert | — | `[U15] Training` |
+
+> **Hinweis zu vergangenen Terminen:** Da vergangene Termine dauerhaft in deinem CalDAV-Kalender gespeichert bleiben, behalten sie ihren zuletzt synchronisierten Teilnahmestatus (z. B. :thumbsup:) automatisch für deine Historie bei.
 
 ---
 
