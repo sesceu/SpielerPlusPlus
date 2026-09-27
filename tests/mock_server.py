@@ -156,7 +156,7 @@ class MockSpielerPlusHandler(BaseHTTPRequestHandler):
 
         if path == "/events/ajaxgetparticipation":
             fallback = """{
-              "html": "<div class=\\"participation-list\\"><div class=\\"participation-list-header\\">Zugesagt</div><div class=\\"participation-list-user\\">Max Mustermann</div></div>"
+              "html": "<div class=\\"participation-list\\"><h4 class=\\"participation-list-header\\">Zugesagt</h4><div class=\\"participation-list-user\\"><div class=\\"participation-list-user-name\\">Max Mustermann</div></div></div><div class=\\"participation-list\\"><h4 class=\\"participation-list-header\\">Absagen</h4><div class=\\"participation-list-user\\"><div class=\\"participation-list-user-name\\">Erika Musterfrau</div></div></div><div class=\\"participation-list\\"><h4 class=\\"participation-list-header\\">Noch nicht zu/abgesagt</h4><div class=\\"participation-list-user\\"><div class=\\"participation-list-user-name\\">Offener Spieler</div></div></div>"
             }"""
             return self._send_response_data(load_fixture("participation.json", fallback), "application/json")
 

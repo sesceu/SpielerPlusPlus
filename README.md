@@ -1,19 +1,19 @@
-# SpielerPlusPlus 📅
+# SpielerPlusPlus :calendar:
 
 Automatischer Synchronisations-Dienst für **SpielerPlus** direkt in deinen **ownCloud / Nextcloud / CalDAV**-Kalender.
 
-- ☁️ **Direkter CalDAV-Sync:** Synchronisiert Termine direkt in deinen privaten ownCloud/Nextcloud-Kalender – kein statisches Datei-Hosting, keine öffentlichen Feeds, kein Webserver nötig.
-- 🔀 **Multi-Team Support:** Führt beliebig viele Teams in einem einzigen Kalender zusammen.
-- 🏷️ **Team-Kürzel:** Kennzeichnet Einträge übersichtlich mit konfigurierbaren Präfixen (z. B. `[U15]`, `[U17]`).
-- 👍 **Persönlicher Teilnahmestatus als Emoji:** Zeigt direkt im Kalendertitel, ob du zugesagt (`👍`), abgesagt (`👎`), unsicher (`❓`) bist oder noch nicht geantwortet hast (`⏳`).
-- ⚡ **Blitzschnell (Future-Events only):** Fragt nur bevorstehende Termine ab (`today - 1` bis `today + 90 Tage`). Vergangene Termine bleiben im ownCloud-Kalender dauerhaft erhalten.
-- ⏱️ **Schonendes Rate-Limiting:** Höfliche Abfrageabstände und automatische Wiederholungen bei HTTP 429 / 5xx.
-- 🧪 **100% Testabdeckung:** Vollständig offline testbar dank integriertem Mock-Server.
-- 📸 **Live-Fixture Recorder:** Werkzeug zum Aktualisieren von Testdaten bei Änderungen der SpielerPlus-Seiten.
+- :cloud: **Direkter CalDAV-Sync:** Synchronisiert Termine direkt in deinen privaten ownCloud/Nextcloud-Kalender – kein statisches Datei-Hosting, keine öffentlichen Feeds, kein Webserver nötig.
+- :twisted_rightwards_arrows: **Multi-Team Support:** Führt beliebig viele Teams in einem einzigen Kalender zusammen.
+- :label: **Team-Kürzel:** Kennzeichnet Einträge übersichtlich mit konfigurierbaren Präfixen (z. B. `[U15]`, `[U17]`).
+- :thumbsup: **Persönlicher Teilnahmestatus als Emoji:** Zeigt direkt im Kalendertitel, ob du zugesagt (:thumbsup:), abgesagt (:thumbsdown:), unsicher (:question:) bist oder noch nicht geantwortet hast (:hourglass_flowing_sand:).
+- :zap: **Blitzschnell (Future-Events only):** Fragt nur bevorstehende Termine ab (`today - 1` bis `today + 90 Tage`). Vergangene Termine bleiben im ownCloud-Kalender dauerhaft erhalten.
+- :stopwatch: **Schonendes Rate-Limiting:** Höfliche Abfrageabstände und automatische Wiederholungen bei HTTP 429 / 5xx.
+- :test_tube: **100% Testabdeckung:** Vollständig offline testbar dank integriertem Mock-Server.
+- :camera: **Live-Fixture Recorder:** Werkzeug zum Aktualisieren von Testdaten bei Änderungen der SpielerPlus-Seiten.
 
 ---
 
-## ⚠️ Wichtiger Hinweis zu SpielerPlus Premium / Pro
+## :warning: Wichtiger Hinweis zu SpielerPlus Premium / Pro
 
 Die offizielle `.ics`-Kalenderfunktion (`Kalender abonnieren` unter `/events/calendar`) wird von SpielerPlus **nicht in allen Accounts angezeigt**. 
 
@@ -137,12 +137,12 @@ python3 main.py --team 12345
 
 | Status | Emoji | Beispiel |
 | :--- | :---: | :--- |
-| Zugesagt | 👍 | `[U15, 👍] Training` |
-| Abgesagt | 👎 | `[U15, 👎] Auswärtsspiel` |
-| Unsicher | ❓ | `[U15, ❓] Sommerfest` |
-| Noch offen | ⏳ | `[U15, ⏳] Training` |
-| Nicht nominiert | 🚫 | `[U15, 🚫] Meisterschaftsspiel` |
-| Vergangene Termine | - | `[U15] Training` |
+| Zugesagt | :thumbsup: | `[U15, ` :thumbsup: `] Training` |
+| Abgesagt | :thumbsdown: | `[U15, ` :thumbsdown: `] Auswärtsspiel` |
+| Unsicher | :question: | `[U15, ` :question: `] Sommerfest` |
+| Noch offen | :hourglass_flowing_sand: | `[U15, ` :hourglass_flowing_sand: `] Training` |
+| Nicht nominiert | :no_entry_sign: | `[U15, ` :no_entry_sign: `] Meisterschaftsspiel` |
+| Vergangene Termine | — | `[U15] Training` |
 
 ---
 
