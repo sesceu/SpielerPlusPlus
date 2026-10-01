@@ -2,4 +2,4 @@ requests>=2.34.2
 beautifulsoup4>=4.15.0
 icalendar>=7.3.0
 caldav>=3.3.1
-tzdata>=2023.3
+tzdata>=2026.4
